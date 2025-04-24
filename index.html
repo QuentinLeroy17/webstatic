@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page drôle</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: Comic Sans MS, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+    #message {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      transition: all 0.4s ease-in-out;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 4px #c71585;
+    }
+    button:active {
+      box-shadow: none;
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Clique pour une bêtise aléatoire 😜</h1>
+  <button onclick="showRandomMessage()">Fais-moi rire !</button>
+  <div id="message"></div>
+
+  <script>
+    const messages = [
+      "Pourquoi les canards n'ont pas de GPS ? Parce qu'ils suivent le coin coin !",
+      "J’ai vendu mon aspirateur… Il ne servait à rien, il était toujours à fond !",
+      "Le saviez-vous ? 87% des statistiques sont inventées sur le moment.",
+      "Mon ordi est lent… Je vais l'envoyer en stage de sprint.",
+      "Si les chats tombent toujours sur leurs pattes, et les tartines sur le côté beurré… que se passe-t-il si on attache une tartine sur un chat ?"
+    ];
+
+    function showRandomMessage() {
+      const message = messages[Math.floor(Math.random() * messages.length)];
+      const el = document.getElementById("message");
+      el.innerText = message;
+
+      // Style aléatoire
+      el.style.color = getRandomColor();
+      el.style.fontSize = Math.floor(Math.random() * 20 + 16) + "px";
+      el.style.transform = `rotate(${Math.floor(Math.random() * 40 - 20)}deg)`;
+    }
+
+    function getRandomColor() {
+      return "#" + Math.floor(Math.random()*16777215).toString(16);
+    }
+  </script>
+</body>
+</html>
